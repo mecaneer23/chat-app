@@ -24,13 +24,7 @@ $(function () {
   let $currentInput = $usernameInput.focus();
 
   const addParticipantsMessage = (data) => {
-    let message = '';
-    if (data.numUsers === 1) {
-      message += `there's 1 participant`;
-    } else {
-      message += `there are ${data.numUsers} participants`;
-    }
-    log(message);
+    log(`there are ${data.numUsers} participant${data.numUsers === 1 ? '' : 's'}`);
   }
 
   const setUsername = () => {
@@ -153,8 +147,7 @@ $(function () {
     for (let i = 0; i < username.length; i++) {
       hash = username.charCodeAt(i) + (hash << 5) - hash;
     }
-    const index = Math.abs(hash % COLORS.length);
-    return COLORS[index];
+    return COLORS[Math.abs(hash % COLORS.length)];
   }
 
 
@@ -189,7 +182,7 @@ $(function () {
 
   socket.on('login', (data) => {
     connected = true;
-    const message = 'Welcome to Socket.IO Chat – ';
+    const message = 'Welcome to Socket.IO Chat - ';
     log(message, {
       prepend: true
     });
