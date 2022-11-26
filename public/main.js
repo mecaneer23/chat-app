@@ -1,4 +1,6 @@
 $(function () {
+  const FADE_TIME = 150; // ms
+  const TYPING_TIMER_LENGTH = 400; // ms
   const COLORS = [
     '#e21400', '#91580f', '#f8a700', '#f78b00',
     '#58dc00', '#287b00', '#a8f07a', '#4ae8c4',
@@ -6,6 +8,13 @@ $(function () {
   ];
 
   const $window = $(window);
+  const $usernameInput = $('.usernameInput'); // Input for username
+  const $messages = $('.messages');           // Messages area
+  const $inputMessage = $('.inputMessage');   // Input message input box
+
+  const $loginPage = $('.login.page');        // The login page
+  const $chatPage = $('.chat.page');          // The chatroom page
+
   const socket = io();
 
   let username;
