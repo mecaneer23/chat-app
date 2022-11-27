@@ -24,7 +24,7 @@ $(function () {
   let $currentInput = $usernameInput.focus();
 
   const addParticipantsMessage = (data) => {
-    log(`there are ${data.numUsers} participant${data.numUsers === 1 ? '' : 's'}`);
+    log(`there ${data.numUsers === 1 ? 'is' : 'are'} ${data.numUsers} participant${data.numUsers === 1 ? '' : 's'}`);
   }
 
   const setUsername = () => {
